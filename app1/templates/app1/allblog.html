@@ -1,0 +1,41 @@
+{% extends 'app1/basic.html' %}
+{%  block title %}  All blogs {% endblock %}
+{% block body %}
+{% load static %}
+<div class="container maine-tujhe-bola-na">
+<div class="row">
+    <div class="col col-md-8 col-sm-8 col-lg-8 col-xs-8">
+ <div class="mt-5">
+
+        <h1 style="text-align: center; font-family: cursive;">latest Blogs</h1>
+        </div>
+
+    {% for i in blog reversed %}
+   <div class="card mt-5">
+           <img src="{{i.image}}" class="card-img-top" height="420px" width="90%">
+
+  <h2 class="card-header">
+    {{i.title}}
+  </h2>
+       <h3 class="ml-4 mt-3"> {{i.catagory}}</h3>
+       <h4 class="ml-4">{{i.email}}</h4>
+       <h6 class="ml-4">{{i.timestamp}}</h6>
+  <div class="card-body">
+    <p class="card-text">{{i.textarea |truncatechars:200}}</p>
+    <a href="blogpost/{{i.ids}}" class="btn btn-info">Read More</a>
+  </div>
+</div>
+    {% endfor %}
+    </div>
+    <div class="col col-md-4 col-sm-4 col-xs-4 col-lg-4 mt-5  ">
+        <div class="mt-5">
+            <div class="mt-5">
+                <section>
+                <img src="{% static 'app1/blog8.jpg' %}"  height="250px" width="350px" class="mt-5 ">
+                </section>
+    </div>
+    </div>
+    </div>
+</div>
+    </div>
+{% endblock %}

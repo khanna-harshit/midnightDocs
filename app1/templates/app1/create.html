@@ -1,0 +1,53 @@
+{% extends 'app1/basic.html' %}
+{%  block title %}  create blog{% endblock %}
+{% block body %}
+{% load static %}
+<div class="container mt-5 mb-5">
+
+    <div class="row">
+        <div class="col col-md-8 col-sm-8 col-lg-8 col-xs-8">
+
+<h2  style="font-family:cursive; text-align:center;">Create Your Blog {{bar.username}}</h2>
+   <form action="/create/{{bar.username}}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="form-group">
+    <label class="mt-5"> Your Name</label>
+    <input type="text" class="form-control"  name="name">
+  </div>
+  <div class="form-group">
+    <label >Catagory</label>
+    <input type="text" class="form-control"  name="catagory1">
+  </div>
+     <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" name="title">
+  </div>
+       <label class="mt-2">Upload Image</label>
+       <div class="input-group mb-3">
+
+  <input type="file" class="form-control " id="inputGroupFile02" name="image">
+</div>
+
+
+<div class="form-group ">
+    <label for="exampleFormControlTextarea1" class="mt-2">Write your imagination</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" name="textarea1"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+        </div>
+        <div class="mt-5">
+
+      <div class="col col-md-4 col-lg-4 col-xs-4 col-sm-4 mt-5">
+        <img src="{% static 'app1/bloggers.png' %}" width="350px" height="250px" style="margin-top:50px;">
+      </div>
+
+               </div>
+
+
+    </div>
+
+
+</div>
+{% endblock %}

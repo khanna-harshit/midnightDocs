@@ -1,0 +1,32 @@
+{% extends 'app1/basic.html' %}
+{%  block title %}  blog post {% endblock %}
+{% block active2 %} active {% endblock %}
+{% block body %}
+{% load static %}
+{% for i in blog %}
+<div class="container  mt-5 mb-5">
+<form>
+    <div class="row mt-5">
+        <div class="col col-md-8 col-sm-8 col-lg-8 col-xs-8 ">
+            <h1 class="mt-5" >Reading Blogpost {{i.title}}...</h1>
+
+
+            <h2 class="card-header mt-5">
+                 <img src="{{i.image}}" class="card-img-top mb-4" height="400px" width="100%">
+    {{i.title}}
+  </h2>
+       <h3 class="ml-4 mt-3"> {{i.catagory}}</h3>
+       <h4 class="ml-4 mt-3">{{i.email}}</h4>
+       <h6 class="ml-4 mt-3">{{i.timestamp}}</h6>
+  <div class="card-body mt-5">
+    <p class="card-text">{{i.textarea}}</p>
+  </div>
+</div>
+        <div class="harsh ml-3 mt-5">
+           <img src="{% static 'app1/blogw3.jpg' %}" style="margin-top: 100px;"  height="250px" width="350px">
+        </div>
+    </div>
+</form>
+</div>
+{% endfor %}
+{% endblock %}

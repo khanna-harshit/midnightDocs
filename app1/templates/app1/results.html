@@ -1,0 +1,116 @@
+{% extends 'app1/basic.html' %}
+{%  block title %} Take an appointment {% endblock %}
+{% block active7 %} active {% endblock %}
+{% block body %}
+{% load static %}
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app1/h12.jpg' %}" class="d-block w-100" height="500px" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>- Skylar Grey</h5>
+        <p>“ I need a doctor, doctor to bring me back to life. ”</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app1/h11.jpg' %}" class="d-block w-100" height="500px" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>- Amy Jo Johnson</h5>
+        <p>“ I believe I can do anything. If I decide I want to be a doctor tomorrow, I'm going to be a doctor. ”</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app1/h10.jpg' %}" class="d-block w-100" height="500px" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>― Suneel Dhand</h5>
+        <p>“In our job, you will never go home at the end of the day thinking that you haven’t done something valuable and important.”
+
+
+
+</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<div class="container mt-5">
+
+
+
+<h2  style="font-family:cursive; text-align:center;">Drug Information {{data.name}}</h2>
+  <br>
+  <div class="col d-flex justify-content-center">
+  <div class="card" style="width: 18rem;" >
+  <img src="{{data.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">link: <a href="{{data.link}}">{{data.name}}</a></li>
+      <li class="list-group-item">Generic : {{data.generic}}</li>
+      <li class="list-group-item">Country : {{data.country}}</li>
+      <li class="list-group-item"> Commercial Name :{{data.commercial_name}}</li>
+      <li class="list-group-item">PPA : {{data.ppa}}</li>
+      <li class="list-group-item">Registration : {{data.registration}}</li>
+      <li class="list-group-item">DCI : {{data.dci}}</li>
+      <li class="list-group-item">Dosage : {{data.dosage}}</li>
+      <li class="list-group-item">Conditioning : {{data.conditioning}}</li>
+    </ul>
+
+  </div>
+</div>
+  </div>
+  <br> <br><br> <br>
+
+
+
+    </div>
+<div class="container">
+<h2  style="font-family:cursive; text-align:center;">Buy {{data.name}}</h2>
+   <form action="/description" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="form-group">
+    <label class="mt-2"> Quantity : </label>
+   <input type="number" min="1" max="100" name="quantity">
+  </div>
+      <div class="form-group">
+    <label class="mt-2"> Amount per unit :  {{data.ppa}} </label>
+
+  </div>
+      <div class="form-group">
+    <label class="mt-2"> Name : </label>
+    <input type="text" class="form-control"  name="name">
+  </div>
+      <div class="form-group">
+    <label class="mt-2"> Address : </label>
+    <input type="text" class="form-control"  name="address">
+  </div>
+       <div class="form-group">
+    <label class="mt-2"> Pincode : </label>
+    <input type="number" class="form-control"  name="pincode">
+  </div>
+       <div class="form-group">
+    <label class="mt-2"> Mobile number : </label>
+    <input type="number" class="form-control"  name="mobile_number">
+  </div>
+  <button type="submit" class="btn btn-primary mt-4 mb-4">Purchase</button>
+</form>
+</div>
+</div>
+
+
+
+{% endblock %}
